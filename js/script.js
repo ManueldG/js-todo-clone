@@ -19,6 +19,8 @@ function main() {
         console.log(lista[k]);
         var item = template.clone();
         item.find('.text').text(lista[k].attività);
+        if (!lista[k].eseguita) 
+        item.find('span').first().addClass('complete');
         list.append(item);
         
     }
