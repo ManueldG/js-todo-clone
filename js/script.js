@@ -1,3 +1,4 @@
+
 function main() {
     var lista = [
         {
@@ -21,16 +22,44 @@ function main() {
         list.append(item);
         
     }
-
+    
     newInput.keyup(function(e){
         console.log(e);
-        if (e.key==='Enter')
+        if (e.key==='Enter'){
            var text = newInput.val().trim();
+           item = template.clone();
            console.log(text);
            item.find('.text').text(text);
            list.append(item);
            newInput.val('');
-    })
+           
+        }
+        
+
+    
+
+    });
+    /*console.log(list.find('.material-icons-two-tone'));
+    list.find('.material-icons-two-tone').click(function(e){
+        
+        var x = e.target.parentElement.remove();
+        console.log(list);
+    })*/
+
+    $( "body" ).on( "click", "li span.material-icons-two-tone", function() {
+        console.log(this);
+        $(this).parent().remove();
+       
+      });
+
+      $( "body" ).on( "click", "li span", function() {
+        console.log(this);
+        
+        $(this).toggleClass("complete");
+       
+      });
+
+    
     
 }
 
